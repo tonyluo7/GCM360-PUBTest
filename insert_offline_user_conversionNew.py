@@ -106,9 +106,13 @@ def main(argv):
         }
         request = service.conversions().batchinsert(profileId=profile_id,
                                                     body=request_body)
-        print(request_body)
-        response = request.execute()
-        print(response)
+        
+        for i in range(1, 10):
+            print(request_body)
+            response = request.execute()
+            print(response)
+            
+            time.sleep(0.1)
 
         if not response['hasFailures']:
             print ('Successfully inserted conversion for encrypted user ID %s.'
